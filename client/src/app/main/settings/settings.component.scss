@@ -1,0 +1,37 @@
+@import "src/styles/variables";
+
+.full-width {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.testimonial-card {
+  .card-up {
+   overflow: hidden;
+   height: 120px;
+   border-top-left-radius: .25rem;
+   border-top-right-radius: .25rem;
+ }
+
+ .avatar {
+   border-radius: 50%;
+   width: 120px;
+   margin-top: -65px;
+   overflow: hidden;
+   border: 5px solid #fff;
+   max-width: 150px;
+   img {
+     width: 100%;
+   }
+ }
+}
+
+.mx-auto {
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.rounded-circle {
+ border-radius: 50%;
+}

@@ -1,0 +1,48 @@
+
+<ul class="list-group">
+  <li class="list-group-item">
+      <img #image class="rounded-circle" [src]="croppedImage" alt="">
+
+      <button class="btn btn-primary" (click)="editImage(template)">Edit Image</button>  
+      
+      <ng-template class="send-invitation" #template>
+          <form class="card testimonial-card">
+            <div class="card-up indigo lighten-1">
+            </div>
+            <div class="avatar mx-auto white">
+              <img *ngIf="!croppedImage" class="rounded-circle" src="./assets/default-user.png" alt="">
+              <img *ngIf="croppedImage" class="rounded-circle" [src]="croppedImage" alt="">
+            </div>
+        
+            <div class="card-body">
+              <input type="file" (change)="fileChangeEvent($event)"  />
+              <image-cropper
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [aspectRatio]="1 / 1"
+                [resizeToWidth]="200"
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (loadImageFailed)="loadImageFailed()"
+              ></image-cropper>
+              <button type="button" class="btn btn-primary">Cancel</button>
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </ng-template>
+  </li>
+  <li class="list-group-item">
+      <input mdbActive [(ngModel)]="user.name" placeholder="Name" type="text" class="form-control">
+  </li>
+  <li class="list-group-item">
+      <input disabled [value]="user.email" placeholder="Email" type="email" class="form-control">
+  </li>
+  <li class="list-group-item">
+      <button class="btn btn-primary full-width">Change password</button>
+  </li>
+  <li class="list-group-item">
+      <button class="btn btn-primary full-width" (click)="logout()">Logout</button>
+  </li>
+</ul>
+

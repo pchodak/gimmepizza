@@ -1,0 +1,13 @@
+FROM node:8.9.4
+
+RUN mkdir -p /client
+
+WORKDIR /client
+
+COPY package.json /client
+
+RUN rm -rf node_modules && npm install
+
+COPY . /client
+
+EXPOSE 4200

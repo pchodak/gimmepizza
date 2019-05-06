@@ -1,0 +1,12 @@
+<header>
+    <nav class="nav nav-pills nav-justified">
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'/'">Gimme Pizza</a>
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'/settings'">Settings</a>
+        <button (click)="logout()">Logout</button>
+        <button class="nav-link" [routerLink]="'/order'">new order</button>
+    </nav>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer></footer>

@@ -1,0 +1,5 @@
+<div class="list-group">
+  <a *ngFor="let item of ordersList | async" href="#" [routerLink]="['/order', item._id]" class="list-group-item">
+    {{ item.name }}
+  </a>
+</div>

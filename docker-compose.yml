@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  client:
+    build: ./client
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    command: "sh -c 'npm install && npm run dev'"
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ./api:/api/
+      - /api/node_modules
+    command: "sh -c 'npm install && npm run dev'"
+    depends_on:
+      - db
+    environment:
+    - NODE_ENV=development
+    - MONGO_URI=mongodb://db:27017/gimme-pizza
+    - MONGO_URI_TESTS=mongodb://db:27017/gimme-pizza-test
+    - PORT=3000
+    - JWT_SECRET=bA2xcjpf8y5aSUFsNB2qN5234mksdlmfklmsjnfolkmkdsjn23ijkmsdm442po
+    - JWT_EXPIRATION_MINUTES=30
+  db:
+    image: mongo:3.6
+    ports:
+      - "27017:27017"
+volumes:
+  db:

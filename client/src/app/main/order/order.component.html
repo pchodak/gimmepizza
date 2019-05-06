@@ -1,0 +1,27 @@
+<header>
+  <input type="text" [value]="order?.name">
+</header>
+<main>
+  <google-chart #cchart (chartSelect)="select($event)" [data]="pieChartData"></google-chart>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Kto?</th>
+        <th scope="col">Co?</th>
+        <th scope="col">Za ile?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+<footer>
+
+</footer>
